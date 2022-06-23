@@ -1,0 +1,44 @@
+#constellation of stars
+def constellation(mat, n):
+	for i in range(n-2):
+		if (mat[0][i] == '#' and mat[1][i] == '#' and mat[2][i] == '#'):
+			print('#',end="")
+		elif(mat[0][i] == '.' and mat[1][i] == '.' and mat[2][i] == '.'):
+			print(end="")
+		else:
+			a = mat[0][i]
+			b = mat[0][i+1]
+			c = mat[0][i+2]
+			a1 = mat[1][i]
+			b1 = mat[1][i+1]
+			c1 = mat[1][i+2]
+			a2 = mat[2][i]
+			b2 = mat[2][i+1]
+			c2 = mat[2][i+2]
+			
+			if (a == '.' and b == '*' and c == '.' and a1 == '*' and b1 == '*' and c1 == '*' and a2 == '*' and b2 == '.'
+					and c2 == '*'):
+				print("A",end="")
+				i = i + 2
+			if (a == '*' and b == '*' and c == '*' and a1 == '*' and b1 == '*' and c1 == '*' and a2 == '*' and b2 == '*'
+					and c2 == '*'):
+				print("E",end="")
+				i = i + 2
+			if (a == '*' and b == '*' and c == '*' and a1 == '.' and b1 == '*' and c1 == '.' and a2 == '*' and b2 == '*'
+					and c2 == '*'):
+				print("I",end="")
+				i = i + 2
+			if (a == '*' and b == '*' and c == '*' and a1 == '*' and b1 == '.' and c1 == '*' and a2 == '*' and b2 == '*'
+					and c2 == '*'):
+				print("O",end="")
+				i = i + 2
+			if (a == '*' and b == '.' and c == '*' and a1 == '*' and b1 == '.' and c1 == '*' and a2 == '*' and b2 == '*'
+					and c2 == '*'):
+				print("U",end="")
+				i = i + 2
+if __name__ == '__main__':
+	N = int(input())
+	mat = [[ '*', '.', '*', '#', '*', '*', '*', '#', '*', '*', '*', '#', '*', '*', '*', '.', '*', '.'] ,
+			[ '*', '.', '*', '#', '*', '.', '*', '#', '.', '*', '.', '#', '*', '*', '*', '*', '*', '*' ],
+			[ '*', '*', '*', '#', '*', '*', '*', '#', '*', '*', '*', '#', '*', '*', '*', '*', '.', '*' ] ]
+	constellation(mat, N)
