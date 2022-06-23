@@ -1,0 +1,34 @@
+#Minimum platforms required
+times=[]
+ta=[]
+td=[]
+reslt = [] 
+def min_arrival():
+    for i in range(n):
+        a=int(input())
+        ta.append(a)
+    for j in range(n):    
+        d=int(input())
+        td.append(d)
+ 
+def findPlatform(ta,td, n):
+    ta.sort()
+    td.sort()
+    plat_needed = 1
+    result = 1
+    i = 1
+    j = 0
+    while (i < n and j < n):
+        if (ta[i] <= td[j]):
+            plat_needed += 1
+            i += 1
+        elif (ta[i] > td[j]):
+            plat_needed -= 1
+            j += 1
+        if (plat_needed > result):
+            result = plat_needed
+    return result
+
+n=int(input("Enter how many trains !"))                             
+min_arrival()
+print("The Minimum Number of platforms needed:",findPlatform(ta,td,n))
