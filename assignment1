@@ -1,6 +1,6 @@
 #constellation of stars
-def constellation(mat, n):
-	for i in range(n-2):
+def constellation(mat,q):
+	for i in range(q-2):
 		if (mat[0][i] == '#' and mat[1][i] == '#' and mat[2][i] == '#'):
 			print('#',end="")
 		elif(mat[0][i] == '.' and mat[1][i] == '.' and mat[2][i] == '.'):
@@ -15,7 +15,7 @@ def constellation(mat, n):
 			a2 = mat[2][i]
 			b2 = mat[2][i+1]
 			c2 = mat[2][i+2]
-			
+
 			if (a == '.' and b == '*' and c == '.' and a1 == '*' and b1 == '*' and c1 == '*' and a2 == '*' and b2 == '.'
 					and c2 == '*'):
 				print("A",end="")
@@ -37,8 +37,13 @@ def constellation(mat, n):
 				print("U",end="")
 				i = i + 2
 if __name__ == '__main__':
-	N = int(input())
-	mat = [[ '*', '.', '*', '#', '*', '*', '*', '#', '*', '*', '*', '#', '*', '*', '*', '.', '*', '.'] ,
-			[ '*', '.', '*', '#', '*', '.', '*', '#', '.', '*', '.', '#', '*', '*', '*', '*', '*', '*' ],
-			[ '*', '*', '*', '#', '*', '*', '*', '#', '*', '*', '*', '#', '*', '*', '*', '*', '.', '*' ] ]
-	constellation(mat, N)
+	q=int(input())
+	mat=[]
+	mat0= list(input())
+	mat1 = list(input())
+	mat2 = list(input())
+	mat.append(mat0)
+	mat.append(mat1)
+	mat.append(mat2)
+	print(mat)
+	constellation(mat,q)
